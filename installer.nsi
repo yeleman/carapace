@@ -6,7 +6,7 @@
 
   !define MUI_PRODUCT "Example app"
   !define MUI_FILE "main"
-  !define MUI_VERSION "1.3"
+  !define MUI_VERSION "1.4"
   !define MUI_BRANDINGTEXT "${MUI_PRODUCT} ${MUI_VERSION}"
   !define MEDIA "media"
   !define IMAGES "img"
@@ -43,7 +43,7 @@ Section "install"
 
   ; List of files/folders to copy
   File /r dist\*.*
-  File ressources\*.dll
+  ;File ressources\*.dll
   File /r ${IMAGES}
 
 ;create desktop shortcut

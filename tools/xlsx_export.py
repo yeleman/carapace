@@ -3,13 +3,12 @@
 # vim: ai ts=4 sts=4 et sw=4 nu
 
 from openpyxl import Workbook
-from openpyxl.compat import range
 
 
 def xlsx_example():
-    # print("make_xlsx_example")
+    print("make_xlsx_example")
     wb = Workbook()
-    dest_filename = 'xlsx_example.xlsx'
+    dest_filename = "xlsx_example.xlsx"
     ws1 = wb.active
     ws1.title = "Sheet example"
     for row in range(1, 20):

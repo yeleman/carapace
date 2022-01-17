@@ -9,9 +9,9 @@ from static import Constants
 
 
 class Target(object):
-    '''Target is the baseclass for all executables that are created.
+    """Target is the baseclass for all executables that are created.
     It defines properties that are shared by all of them.
-    '''
+    """
 
     def __init__(self, **kw):
         self.__dict__.update(kw)
@@ -38,12 +38,13 @@ class Target(object):
     def __setitem__(self, name, value):
         self.__dict__[name] = value
 
+
 RT_MANIFEST = 24
 
 # A manifest which specifies the executionlevel
 # and windows common-controls library version 6
 
-manifest_template = '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+manifest_template = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
   <assemblyIdentity
     version="5.0.0.0"
@@ -75,35 +76,45 @@ manifest_template = '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </dependentAssembly>
   </dependency>
 </assembly>
-'''
+"""
 
 main = Target(
     # We can extend or override the VersionInfo of the base class:
     version="1.0",
     script=Constants.NAME_MAIN,  # path of the main script
     icon_resources=[(0, Constants.APP_LOGO_ICO)],
-    other_resources=[(RT_MANIFEST, 1, (manifest_template % dict(
-        prog=Constants.NAME_MAIN, level="asInvoker")).encode("utf-8")), ]
+    other_resources=[
+        (
+            RT_MANIFEST,
+            1,
+            (
+                manifest_template % dict(prog=Constants.NAME_MAIN, level="asInvoker")
+            ).encode("utf-8"),
+        ),
+    ],
 )
 
 py2exe_options = dict(
     packages=["reportlab"],
-    includes=['sip', 'PyQt4'],
-    excludes=['tkinter'],
+    includes=["PyQt5"],
+    excludes=["tkinter"],
     optimize=0,
     compressed=True,  # uncompressed may or may not have a faster startup
     bundle_files=1,
-    dist_dir='dist',
+    dist_dir="dist",
 )
 
 # Some options can be overridden by command line options...
 
-setup(name="name",
-      # console based executables
-      console=[],
-      # windows subsystem executables (no console)
-      windows=[main],
-      # py2exe options
-      zipfile=None,
-      options={"py2exe": py2exe_options, },
-      )
+setup(
+    name="name",
+    # console based executables
+    console=[],
+    # windows subsystem executables (no console)
+    windows=[main],
+    # py2exe options
+    zipfile=None,
+    options={
+        "py2exe": py2exe_options,
+    },
+)

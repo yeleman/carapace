@@ -4,11 +4,10 @@
 
 import os
 
-ROOT_DIR = os.path.dirname(os.path.abspath('__file__'))
+ROOT_DIR = os.path.dirname(os.path.abspath("__file__"))
 
 
 class Constants(object):
-
     def __init__(self):
         CConstants.__init__(self)
 
@@ -16,8 +15,8 @@ class Constants(object):
 
     NAME_MAIN = "main.py"
     APP_NAME = "Example app"
-    APP_VERSION = u"1.0"
-    APP_DATE = u"02/2013"
+    APP_VERSION = u"1.4"
+    APP_DATE = u"01/2022"
     img_media = os.path.join(ROOT_DIR, "media", "img")
     APP_LOGO = os.path.join(img_media, "logo.png")
     APP_LOGO_ICO = os.path.join(img_media, "logo.ico")

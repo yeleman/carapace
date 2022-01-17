@@ -1,12 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from __future__ import (
-    unicode_literals, absolute_import, division, print_function)
-
-from PyQt4.QtGui import QIcon
-from PyQt4.QtCore import Qt
-
+from __future__ import unicode_literals, absolute_import, division, print_function
+from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import Qt
 from static import Constants
 
 from ui.common import CMainWindow
@@ -17,12 +14,10 @@ from ui.example import ExampleViewWidget
 
 
 class MainWindow(CMainWindow):
-
     def __init__(self):
         CMainWindow.__init__(self)
 
-        self.setWindowIcon(QIcon.fromTheme(
-            '', QIcon(u"{}".format(Constants.APP_LOGO))))
+        self.setWindowIcon(QIcon.fromTheme("", QIcon("{}".format(Constants.APP_LOGO))))
         self.menubar = MenuBar(self)
         self.setMenuBar(self.menubar)
         self.toolbar = MenuToolBar(self)

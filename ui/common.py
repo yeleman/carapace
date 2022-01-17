@@ -1,22 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
 # vim: ai ts=4 sts=4 et sw=4 nu
-from __future__ import (
-    unicode_literals, absolute_import, division, print_function)
+from __future__ import unicode_literals, absolute_import, division, print_function
 
-from PyQt4.QtCore import Qt, QSize
-from PyQt4.QtGui import (QMainWindow, QWidget, QTabBar, QIcon)
+from PyQt5.QtCore import Qt, QSize
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QMainWindow, QWidget, QTabBar
 
 from static import Constants
 
 
 class CMainWindow(QMainWindow):
-
     def __init__(self, parent=0, *args, **kwargs):
         QMainWindow.__init__(self)
 
-        self.setWindowIcon(QIcon.fromTheme('logo', QIcon(
-            u"{}logo.png".format(Constants.img_media))))
+        self.setWindowIcon(
+            QIcon.fromTheme("logo", QIcon("{}logo.png".format(Constants.img_media)))
+        )
 
         self.wc = self.width()
         self.hc = self.height()
@@ -44,7 +44,6 @@ class CMainWindow(QMainWindow):
 
 
 class CWidget(QWidget):
-
     def __init__(self, parent=0, *args, **kwargs):
 
         QWidget.__init__(self, parent=parent, *args, **kwargs)
